@@ -3,21 +3,32 @@ int calculate() {
 }
 
 class Calculator{
-    void add(int a, int b){
-        print("Sum: ${a+b}");
+    String add(int a, int b){
+        return "Sum: ${a+b}";
     }
-    void subtract(int a, int b) {
-        print("Difference: ${a - b}");
+    String subtract(int a, int b) {
+        return "Difference: ${a - b}";
     }
-    void multply(int a, int b) {
-        print("Product: ${a * b}");
+    String multply(int a, int b) {
+        return "Product: ${a * b}";
     }
-    void divide(int a, int b) {
+    String divide(int a, int b) {
         try {
             double quotient = a / b;
-            print("Quotient: $quotient");
+            return "Quotient: $quotient";
         } on UnsupportedError {
-            print("Can't divide by 0");
+            return "Can't divide by 0";
+        }
+    }
+    void results(int a, int b) {
+        var results = [
+            add(a, b),
+            subtract(a, b),
+            multply(a, b),
+            divide(a, b)
+        ];
+        for (String result in results) {
+            print(result);
         }
     }
 }
