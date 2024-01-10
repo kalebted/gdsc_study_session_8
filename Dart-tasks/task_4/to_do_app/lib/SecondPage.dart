@@ -35,11 +35,11 @@ class _SecondPageState extends State<SecondPage> {
     super.dispose();
   }
 
-  void saveInputs() {
-    String mainTaskName = inputValues[0];
-    String dueDate = inputValues[1];
-    String description = inputValues[2];
-  }
+//   void saveInputs() {
+//     String mainTaskName = inputValues[0];
+//     String dueDate = inputValues[1];
+//     String description = inputValues[2];
+//   }
 
   @override
   Widget build(BuildContext context) {

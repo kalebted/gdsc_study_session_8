@@ -30,13 +30,13 @@ class _BookStoreState extends State<BookStore> {
           ),
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(40.0, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(20.0, 0, 0, 0),
               child: Column(
                 children: [
                   Row(
                     children: [
                       Container(
-                        width: 250,
+                        width: 300,
                         height: 50,
                         decoration: const BoxDecoration(
                           color: Color.fromRGBO(200, 218, 244, 1),
@@ -59,7 +59,7 @@ class _BookStoreState extends State<BookStore> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
+                        padding: const EdgeInsets.all(10),
                         child: IconButton(
                           onPressed: () {},
                           icon: const Icon(
@@ -73,80 +73,83 @@ class _BookStoreState extends State<BookStore> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(13, 0, 50.0, 0),
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: 300,
-                          height: 200,
-                          decoration: const BoxDecoration(
-                            color: Color.fromRGBO(200, 218, 244, 1),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              bottomRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20),
-                            ),
-                          ),
-                          child: Image.asset(
-                            'images/bookStoreBanner.jpg',
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Stack(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Container(
+                            alignment: Alignment.center,
                             width: 300,
                             height: 200,
-                            fit: BoxFit.cover,
+                            decoration: const BoxDecoration(
+                              color: Color.fromRGBO(200, 218, 244, 1),
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                bottomRight: Radius.circular(20),
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
+                            ),
+                            child: Image.asset(
+                              'images/bookStoreBanner.jpg',
+                              width: 300,
+                              height: 200,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
-                      ),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 10, 120.0, 50),
-                            child: Icon(
-                              Icons.pause,
-                              color: Colors.white,
-                              size: 40,
-                            ),
-                          ),
-                          SizedBox(width: 20),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 10, 50.0, 50),
-                            child: Icon(
-                              Icons.pause,
-                              color: Colors.white,
-                              size: 40,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.fromLTRB(10, 45, 50.0, 30),
-                            child: Text(
-                              "Today a Reader Tomorrow a Leader",
-                              style: TextStyle(
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(0, 10, 120.0, 50),
+                              child: Icon(
+                                Icons.pause,
                                 color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 10, 40, 0),
-                            child: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.bookmark,
-                                color: Colors.white,
+                                size: 40,
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                            SizedBox(width: 20),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(0, 10, 50.0, 50),
+                              child: Icon(
+                                Icons.pause,
+                                color: Colors.white,
+                                size: 40,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.fromLTRB(10, 45, 50.0, 30),
+                              child: Text(
+                                "Today a Reader Tomorrow a Leader",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 10, 40, 0),
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.bookmark,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(
                     height: 40,
