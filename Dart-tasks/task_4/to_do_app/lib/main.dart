@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'book_store.dart';
+import 'frontUI.dart';
 
 void main() {
-  runApp(const BookStore());
+  runApp(const MyApp());
 }
