@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\kaleb\Desktop\VS Code\GDSC\gdsc_study_session_8\Dart-tasks\build\CMakeFiles\3d5e2ad702b1ca35521831516f5409a1\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{16E86E35-482E-3EF7-BE32-A2F0C24E1EC8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+C:/Users/kaleb/Desktop/VS Code/GDSC/gdsc_study_session_8/Dart-tasks/build/CMakeFiles/INSTALL.dir
+C:/Users/kaleb/Desktop/VS Code/GDSC/gdsc_study_session_8/Dart-tasks/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/kaleb/Desktop/VS Code/GDSC/gdsc_study_session_8/Dart-tasks/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/kaleb/Desktop/VS Code/GDSC/gdsc_study_session_8/Dart-tasks/build/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+C:/Users/kaleb/Desktop/VS Code/GDSC/gdsc_study_session_8/Dart-tasks/build/flutter/CMakeFiles/flutter_wrapper_app.dir
+C:/Users/kaleb/Desktop/VS Code/GDSC/gdsc_study_session_8/Dart-tasks/build/flutter/CMakeFiles/flutter_assemble.dir
+C:/Users/kaleb/Desktop/VS Code/GDSC/gdsc_study_session_8/Dart-tasks/build/flutter/CMakeFiles/INSTALL.dir
+C:/Users/kaleb/Desktop/VS Code/GDSC/gdsc_study_session_8/Dart-tasks/build/runner/CMakeFiles/to_do_app.dir
+C:/Users/kaleb/Desktop/VS Code/GDSC/gdsc_study_session_8/Dart-tasks/build/runner/CMakeFiles/INSTALL.dir
+C:/Users/kaleb/Desktop/VS Code/GDSC/gdsc_study_session_8/Dart-tasks/build/runner/CMakeFiles/ALL_BUILD.dir
