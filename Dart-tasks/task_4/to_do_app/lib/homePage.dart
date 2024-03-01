@@ -16,73 +16,24 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80.0), // Set the desired height
-        child: AppBar(
-          backgroundColor:
-              Colors.transparent, // Set the background color of the app bar
-          flexibleSpace: Stack(
-            children: [
-              Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.white, // Starting color (white)
-                      Colors.transparent, // Ending color (transparent)
-                    ],
-                  ),
-                ),
-              ),
-              Center(
-                child: Text(
-                  'Todo List',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20.0,
-                    shadows: <Shadow>[
-                      Shadow(
-                        offset: const Offset(1.0, 1.0),
-                        blurRadius: 3.0,
-                        color: const Color.fromARGB(255, 193, 10, 10).withOpacity(0.5),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back,
-                color: Colors.white), // Set the back button icon
-            onPressed: () {
-              Navigator.pop(context); // Go back when the icon is pressed
+      appBar: AppBar(
+        title: const Text("Todo List"),        
+        actions: [
+          Builder(
+            builder: (BuildContext context) {
+              // Use Builder widget to create a new context
+              return IconButton(
+                icon: const Icon(Icons.more_vert,
+                    color: Colors.black), // Set the hamburger icon
+                onPressed: () {
+                  Scaffold.of(context).openDrawer(); // Open the drawer on icon press
+                },
+              );
             },
           ),
-          actions: [
-            Builder(
-              builder: (BuildContext context) {
-                // Use Builder widget to create a new context
-                return IconButton(
-                  icon: const Icon(Icons.menu_open_rounded,
-                      color: Colors.white), // Set the hamburger icon
-                  onPressed: () {
-                    Scaffold.of(context)
-                        .openDrawer(); // Open the drawer on icon press
-                  },
-                );
-              },
-            ),
-          ],
-        ),
+        ],
       ),
-      drawer: const Drawer(
-        elevation: 50.0,
-        //backgroundColor: Color.fromRGBO(249, 138, 3, 1),
-        surfaceTintColor: Color.fromRGBO(148, 32, 32, 0.941),
-      ),
+      
       body: ListView(
         children: [
           Center(
@@ -95,7 +46,7 @@ class _HomePageState extends State<HomePage> {
           const Text(
             "Task List",
             style: TextStyle(fontSize: 20, fontFamily: 'Open Sans'),
-            textAlign: TextAlign.left,
+            // textAlign: TextAlign.left,
           ),
           const SizedBox(
             height: 10,

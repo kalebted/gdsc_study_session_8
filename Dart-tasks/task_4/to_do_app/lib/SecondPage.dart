@@ -1,17 +1,47 @@
+// ignore_for_file: file_names, use_build_context_synchronously
+
 import 'package:flutter/material.dart';
-import 'package:to_do_app/ThirdPage.dart';
+import 'ThirdPage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:logger/logger.dart';
 
 class SecondPage extends StatefulWidget {
-  const SecondPage({Key? key}) : super(key: key);
+  const SecondPage({super.key});
 
   @override
   _SecondPageState createState() => _SecondPageState();
 }
 
 class _SecondPageState extends State<SecondPage> {
-  List<String> titles = ["Main Task Name", "Due Date", "Description"];
+  List<String> titles = ["Task Name", "Due Date", "Description"];
   List<TextEditingController> controllers = [];
   List<String> inputValues = [];
+
+  Future<void> saveInputsToSharedPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    // Save the values to SharedPreferences
+    prefs.setString('mainTaskName', inputValues[0]);
+    prefs.setString('dueDate', inputValues[1]);
+    prefs.setString('description', inputValues[2]);
+  }
+
+  Future<Map<String, String>> getInputsfromSharedPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    // Retrieve the values from SharedPreferences
+    String? name = prefs.getString('mainTaskName');
+    String? date = prefs.getString('dueDate');
+    String? description = prefs.getString('description');
+
+    // Return the values as a Map
+    return {
+      'mainTaskName': name ?? '',
+      'dueDate': date ?? '',
+      'description': description ?? '',
+    };
+  }
+
 
   @override
   void initState() {
@@ -35,84 +65,28 @@ class _SecondPageState extends State<SecondPage> {
     super.dispose();
   }
 
-//   void saveInputs() {
-//     String mainTaskName = inputValues[0];
-//     String dueDate = inputValues[1];
-//     String description = inputValues[2];
-//   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset:
           false, // Prevent Scaffold from resizing when the keyboard appears
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80.0), // Set the desired height
-        child: AppBar(
-          backgroundColor:
-              Colors.transparent, // Set the background color of the app bar
-          flexibleSpace: Stack(
-            children: [
-              Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.white, // Starting color (white)
-                      Colors.transparent, // Ending color (transparent)
-                    ],
-                  ),
-                ),
-              ),
-              Center(
-                child: Text(
-                  'Create a New Task',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20.0,
-                    shadows: <Shadow>[
-                      Shadow(
-                        offset: const Offset(1.0, 1.0),
-                        blurRadius: 3.0,
-                        color: const Color.fromARGB(255, 193, 10, 10)
-                            .withOpacity(0.5),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back,
-                color: Colors.white), // Set the back button icon
-            onPressed: () {
-              Navigator.pop(context); // Go back when the icon is pressed
+      appBar: AppBar(
+        title: const Text("Todo List"),
+        actions: [
+          Builder(
+            builder: (BuildContext context) {
+              // Use Builder widget to create a new context
+              return IconButton(
+                icon: const Icon(Icons.more_vert,
+                    color: Colors.black), // Set the hamburger icon
+                onPressed: () {
+                  Scaffold.of(context)
+                      .openDrawer(); // Open the drawer on icon press
+                },
+              );
             },
           ),
-          actions: [
-            Builder(
-              builder: (BuildContext context) {
-                // Use Builder widget to create a new context
-                return IconButton(
-                  icon: const Icon(Icons.menu_open_rounded,
-                      color: Colors.white), // Set the hamburger icon
-                  onPressed: () {
-                    Scaffold.of(context)
-                        .openDrawer(); // Open the drawer on icon press
-                  },
-                );
-              },
-            ),
-          ],
-        ),
-      ),
-      drawer: const Drawer(
-        elevation: 50.0,
-        //backgroundColor: Color.fromRGBO(249, 138, 3, 1),
-        surfaceTintColor: Color.fromRGBO(148, 32, 32, 0.941),
+        ],
       ),
       body: Center(
         child: Column(
@@ -170,7 +144,11 @@ class _SecondPageState extends State<SecondPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
+                  Map<String, String> inputs =
+                      await getInputsfromSharedPreferences();
+                  final Logger logger = Logger();
+                  logger.d('Saved inputs: $inputs');
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const ThirdPage()),
