@@ -1,3 +1,4 @@
+import 'package:book_store/DescriptionPage.dart';
 import 'package:flutter/material.dart';
 
 class BookStore extends StatefulWidget {
@@ -316,7 +317,7 @@ class _BookStoreState extends State<BookStore> {
                         padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         child: Row(children: [
                           const Text(
-                            "Recomedation",
+                            "Recommendations",
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 30,
@@ -324,7 +325,7 @@ class _BookStoreState extends State<BookStore> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(120, 0, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(80, 0, 0, 0),
                             child: IconButton(
                                 onPressed: () {},
                                 icon: const Icon(
@@ -349,10 +350,15 @@ class _BookStoreState extends State<BookStore> {
                                       const EdgeInsets.fromLTRB(0, 8, 0, 0),
                                   child: Column(
                                     children: [
-                                      Image.asset(
-                                        "images/trevornoah.jpg",
-                                        fit: BoxFit.cover,
-                                        height: 190,
+                                      GestureDetector(
+                                        onTap: (){
+                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>DescriptionPage()));
+                                        },
+                                        child: Image.asset(
+                                          "images/trevornoah.jpg",
+                                          fit: BoxFit.cover,
+                                          height: 190,
+                                        ),
                                       ),
                                       const SizedBox(height: 10),
                                       const Text(
