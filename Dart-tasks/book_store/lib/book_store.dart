@@ -17,12 +17,20 @@ class _BookStoreState extends State<BookStore> {
           appBar: PreferredSize(
             preferredSize: const Size.fromHeight(70),
             child: AppBar(
-              title: const Text('GDSC Book Store'),
-              centerTitle: true,
+              title: const Text(
+                'GDSC BOOKSTORE',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "poppins",
+                ),
+              ),
+              centerTitle: false,
               leading: IconButton(
                 onPressed: () {},
                 icon: const Icon(
-                  Icons.menu_book_rounded,
+                  Icons.dehaze_sharp,
                   color: Colors.blue,
                 ),
               ),
@@ -30,7 +38,7 @@ class _BookStoreState extends State<BookStore> {
           ),
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(20.0, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 0, 10),
               child: Column(
                 children: [
                   Row(
@@ -40,12 +48,7 @@ class _BookStoreState extends State<BookStore> {
                         height: 50,
                         decoration: const BoxDecoration(
                           color: Color.fromRGBO(200, 218, 244, 1),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                            bottomLeft: Radius.circular(20),
-                            bottomRight: Radius.circular(20),
-                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(20))
                         ),
                         child: Align(
                           alignment: Alignment.centerRight,
@@ -63,7 +66,7 @@ class _BookStoreState extends State<BookStore> {
                         child: IconButton(
                           onPressed: () {},
                           icon: const Icon(
-                            Icons.filter_1_outlined,
+                            Icons.settings,
                             color: Colors.blue,
                           ),
                         ),
@@ -74,28 +77,23 @@ class _BookStoreState extends State<BookStore> {
                     height: 20,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
                     child: Stack(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(0),
                           child: Container(
                             alignment: Alignment.center,
-                            width: 300,
-                            height: 200,
+                            width: 350,
+                            height: 180,
                             decoration: const BoxDecoration(
                               color: Color.fromRGBO(200, 218, 244, 1),
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(20),
-                                bottomRight: Radius.circular(20),
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
-                              ),
+                              borderRadius: BorderRadius.all(Radius.zero)
                             ),
                             child: Image.asset(
-                              'images/bookStoreBanner.jpg',
-                              width: 300,
-                              height: 200,
+                              'images/blue-texture.jpg',
+                              width: 350,
+                            //   height: 200,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -123,9 +121,10 @@ class _BookStoreState extends State<BookStore> {
                           ],
                         ),
                         Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Padding(
-                              padding: EdgeInsets.fromLTRB(10, 45, 50.0, 30),
+                              padding: EdgeInsets.fromLTRB(10, 45, 50, 30),
                               child: Text(
                                 "Today a Reader Tomorrow a Leader",
                                 style: TextStyle(
@@ -137,13 +136,32 @@ class _BookStoreState extends State<BookStore> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 10, 40, 0),
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.bookmark,
-                                  color: Colors.white,
-                                ),
+                              padding: const EdgeInsets.fromLTRB(0, 0, 40, 0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(
+                                      Icons.translate,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(
+                                      Icons.bookmark,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(
+                                      Icons.share,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -166,23 +184,22 @@ class _BookStoreState extends State<BookStore> {
                               "Categories",
                               style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 21,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 30,                                
                               ),
                             )
                           ],
                         ),
                       ),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            Container(
+                      Wrap(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Container(
                               height: 45,
                               width: 120,
                               decoration: BoxDecoration(
-                                color: const Color.fromRGBO(200, 218, 244, 1),
-                                borderRadius: BorderRadius.circular(20),
+                                color: const Color.fromARGB(255, 206, 206, 206),
+                                borderRadius: BorderRadius.circular(10),
                               ),
                               child: const Padding(
                                 padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
@@ -197,15 +214,15 @@ class _BookStoreState extends State<BookStore> {
                                 ),
                               ),
                             ),
-                            Container(
-                              width: 10,
-                            ),
-                            Container(
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Container(
                               height: 45,
                               width: 120,
                               decoration: BoxDecoration(
-                                color: const Color.fromRGBO(200, 218, 244, 1),
-                                borderRadius: BorderRadius.circular(20),
+                                color: const Color.fromARGB(255, 206, 206, 206),
+                                borderRadius: BorderRadius.circular(10),
                               ),
                               child: const Padding(
                                 padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
@@ -220,15 +237,15 @@ class _BookStoreState extends State<BookStore> {
                                 ),
                               ),
                             ),
-                            Container(
-                              width: 10,
-                            ),
-                            Container(
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Container(
                               height: 45,
                               width: 120,
                               decoration: BoxDecoration(
-                                color: const Color.fromRGBO(200, 218, 244, 1),
-                                borderRadius: BorderRadius.circular(20),
+                                color: const Color.fromARGB(255, 206, 206, 206),
+                                borderRadius: BorderRadius.circular(10),
                               ),
                               child: const Padding(
                                 padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
@@ -243,8 +260,54 @@ class _BookStoreState extends State<BookStore> {
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Container(
+                              height: 45,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 206, 206, 206),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Padding(
+                                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                child: Text(
+                                  "Fiction",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Container(
+                              height: 45,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 206, 206, 206),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Padding(
+                                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                child: Text(
+                                  "Non-Fiction",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 20,
@@ -256,12 +319,12 @@ class _BookStoreState extends State<BookStore> {
                             "Recomedation",
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 21,
-                              fontWeight: FontWeight.bold,
+                              fontSize: 30,
+                            //   fontWeight: FontWeight.bold,
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(160, 0, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(120, 0, 0, 0),
                             child: IconButton(
                                 onPressed: () {},
                                 icon: const Icon(
@@ -276,102 +339,96 @@ class _BookStoreState extends State<BookStore> {
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: [
-                            Container(
-                              height: 250,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                color: const Color.fromRGBO(200, 218, 244, 1),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                                child: Column(
-                                  children: [
-                                    const Text(
-                                      "Health",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SizedBox(
+                                height: 280,
+                                width: 130,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        "images/trevornoah.jpg",
+                                        fit: BoxFit.cover,
+                                        height: 190,
                                       ),
-                                    ),
-                                    const SizedBox(height: 1),
-                                    Image.asset(
-                                      "images/bookStoreBanner.jpg",
-                                      fit: BoxFit.cover,
-                                      height: 190,
-                                    ),
-                                  ],
+                                      const SizedBox(height: 10),
+                                      const Text(
+                                        "Born A Crime",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                            Container(
-                              width: 10,
-                            ),
-                            Container(
-                              height: 250,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                color: const Color.fromRGBO(200, 218, 244, 1),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                                child: Column(
-                                  children: [
-                                    const Text(
-                                      "Sciences",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SizedBox(
+                                height: 280,
+                                width: 130,                           
+                                child: Padding(
+                                  padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                  child: Column(
+                                    children: [                                    
+                                      Image.asset(
+                                        "images/jamesclear.jpg",
+                                        fit: BoxFit.cover,
+                                        height: 190,
                                       ),
-                                    ),
-                                    const SizedBox(height: 1),
-                                    Image.asset(
-                                      "images/appbar.png",
-                                      fit: BoxFit.cover,
-                                      height: 190,
-                                    ),
-                                  ],
+                                      const SizedBox(height: 10),
+                                      const Text(
+                                        "Atomic Habits",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                            Container(
-                              width: 10,
-                            ),
-                            Container(
-                              height: 250,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                color: const Color.fromRGBO(200, 218, 244, 1),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                                child: Column(
-                                  children: [
-                                    const Text(
-                                      "Technology",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SizedBox(
+                                height: 280,
+                                width: 130,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        "images/simonsinek.jpg",
+                                        fit: BoxFit.cover,
+                                        height: 190,
                                       ),
-                                    ),
-                                    const SizedBox(height: 1),
-                                    Image.asset(
-                                      "images/stickman.jpg",
-                                      fit: BoxFit.cover,
-                                      height: 190,
-                                    ),
-                                  ],
+                                      const SizedBox(height: 10),
+                                      const Text(
+                                        "Start With Why",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
+                            
                           ],
                         ),
                       ),
